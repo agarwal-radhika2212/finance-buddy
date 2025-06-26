@@ -7,7 +7,7 @@ services:
       - "8501:8501"
     environment:
       - PYTHONUNBUFFERED=1
-    volumes:
+    # volumes:
       # Mount the CSV file if it's in a specific location
       # - ./data:/app/data
     restart: unless-stopped
