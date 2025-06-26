@@ -46,7 +46,9 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Trigger Render Deployment
-        if: ${{ secrets.RENDER_DEPLOY_HOOK != '' }}
+        env:
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        if: ${{ env.RENDER_DEPLOY_HOOK }}
         run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
 
   test:
